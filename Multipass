@@ -1,3 +1,10 @@
+
+
+USE MULTIPASS TO GET VMS for any worstation https://canonical.com/multipass
+
+TUTORIAL SOURCE: https://ubuntu.com/tutorials/running-a-container-with-the-docker-workflow-in-multipass#6-launching-a-container
+
+
 Multipass provides  out-of-the-box Docker on any platform. 
 Test and  develop Docker containers locally on macOS, Windows, or Linux.
 
@@ -7,4 +14,28 @@ create a blog in a Docker container in Multipass.
 
 STEPS
 1. install Multipass on your machine, following the steps in How to https://discourse.ubuntu.com/t/how-to-install-multipass/45415.
+2. Next, create a VM running Docker; Open up a terminal Run the command: "multipass exec docker docker`"
+3. Run the command: "multipass launch docker"
+4.You'll need to add this to your shell configuration (.bashrc, .zshrc or so) for aliases to work without prefixing with `multipass`:
+      PATH="$PATH:/home/nhart/snap/multipass/common/bin"
+
+
+USING PORTAINER 
+The Docker blueprint comes with Portainer installed, which gives an easy-to-use graphical interface for managing your Docker containers.
+To access Portainer, you will first need its IP address. The following command will show the IP addresses associated with the Ddocker VM you created in the previous steps:
+    Run the command: multipass list
+In a web browser, enter the Portainer IP address from the previous step followed by the Portainer port, 9000, like this: “:9000”. 
+Set up a username and password at the prompt, then select the option for managing a local Docker environment and click connect.
+Click on the newly created “Local” environment to manage the Docker instance on your local VM.
+
+
+TO HOST A BLOG USING PORTAINER.
+Inside Portainer, click on App Templates in the left toolbar, and scroll down to the Ghost template.
+Now, you can configure and deploy the template. Enter a name and click deploy. 
+The bridge network is the default and correct option
+Click the Containers Tab on the left, you should now see two containers running. One containing Ghost(used for your new blog), and the other containing Portainer itself.
+You can now access your Ghost blog by going to the published port indicated in the Containers page, i.e., <VM IP Address>:<Ghost Port>.
+
+
+
 
