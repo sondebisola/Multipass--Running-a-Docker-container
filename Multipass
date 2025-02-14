@@ -1,0 +1,10 @@
+Multipass provides  out-of-the-box Docker on any platform. 
+Test and  develop Docker containers locally on macOS, Windows, or Linux.
+
+I used this on my MacOs
+
+create a blog in a Docker container in Multipass.
+
+STEPS
+1. install Multipass on your machine, following the steps in How to https://discourse.ubuntu.com/t/how-to-install-multipass/45415.
+
